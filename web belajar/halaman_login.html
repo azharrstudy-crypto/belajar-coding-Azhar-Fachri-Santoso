@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | zharr study</title>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background-color: white;
+      width: 360px;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #2d3436;
+    }
+
+    p {
+      font-size: 14px;
+      color: #636e72;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6c5ce7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background-color: #5a4ddc;
+    }
+
+    .link {
+      display: block;
+      font-size: 13px;
+      color: #0984e3;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+
+    .message {
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+    <h1>zharr study</h1>
+    <p>Silakan login untuk melanjutkan</p>
+
+    <div id="msg" class="message"></div>
+
+    <input type="text" id="username" placeholder="Masukkan Username">
+    <input type="password" id="password" placeholder="Masukkan Password">
+
+    <button onclick="loginUser()">Login</button>
+
+    <a href="halaman_beranda.html" class="link">
+      Masuk tanpa login
+    </a>
+
+    <a href="halaman_daftar.html" class="link">
+      Belum punya akun? Daftar
+    </a>
+  </div>
+
+  <script>
+    function loginUser() {
+      var username = document.getElementById("username").value.trim();
+      var password = document.getElementById("password").value.trim();
+      var msg = document.getElementById("msg");
+
+      if (username === "" || password === "") {
+        msg.style.display = "block";
+        msg.className = "message error";
+        msg.innerHTML = "Username dan Password harus diisi!";
+        return;
+      }
+
+      // Ambil data user dari localStorage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Cari user berdasarkan username dan password
+      var validUser = users.find(u => u.username === username && u.password === password);
+
+      if (validUser) {
+        msg.style.display = "block";
+        msg.className = "message success";
+        msg.innerHTML = "Login berhasil!";
+
+        // Simpan username yang sedang login (optional)
+        localStorage.setItem("loginUser", username);
+
+        // Arahkan ke beranda
+        setTimeout(function() {
+          window.location.href = "halaman_beranda.html";
+        }, 1000);
+
+      } else {
+        msg.style.display = "block";
+        msg.className = "message error";
+        msg.innerHTML = "Akun tidak ditemukan! Silakan daftar terlebih dahulu.";
+      }
+    }
+  </script>
+
+</body>
+</html>

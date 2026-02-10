@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daftar | zharr study</title>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #55efc4, #81ecec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-box {
+      background-color: white;
+      width: 360px;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #2d3436;
+    }
+
+    p {
+      font-size: 14px;
+      color: #636e72;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00b894;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background-color: #019875;
+    }
+
+    a {
+      font-size: 13px;
+      color: #0984e3;
+      text-decoration: none;
+    }
+
+    .message {
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="register-box">
+    <h1>Daftar Akun</h1>
+    <p>Buat akun untuk belajar di zharr study</p>
+
+    <div id="msg" class="message"></div>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="daftarAkun()">Daftar</button>
+
+    <a href="halaman_login.html">Sudah punya akun? Login</a>
+  </div>
+
+  <script>
+    function daftarAkun() {
+      var username = document.getElementById("username").value.trim();
+      var password = document.getElementById("password").value.trim();
+      var msg = document.getElementById("msg");
+
+      if (username === "" || password === "") {
+        msg.style.display = "block";
+        msg.className = "message error";
+        msg.innerHTML = "Username dan Password harus diisi!";
+        return;
+      }
+
+      // Ambil data user dari localStorage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Cek username sudah ada atau belum
+      var cekUser = users.find(u => u.username === username);
+
+      if (cekUser) {
+        msg.style.display = "block";
+        msg.className = "message error";
+        msg.innerHTML = "Username sudah digunakan! Gunakan username lain.";
+      } else {
+        // Tambahkan user baru
+        users.push({ username: username, password: password });
+        localStorage.setItem("users", JSON.stringify(users));
+
+        msg.style.display = "block";
+        msg.className = "message success";
+        msg.innerHTML = "Pendaftaran berhasil! Silakan login.";
+
+        // Kosongkan input
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>

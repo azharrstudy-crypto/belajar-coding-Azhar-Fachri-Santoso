@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Coding | Zharr Study</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #74b9ff, #55efc4, #00cec9, #6c5ce7);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: white;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 25px auto;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      margin-bottom: 18px;
+      transition: 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.01);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .question-title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    label:hover {
+      background: rgba(0,0,0,0.4);
+      transform: translateX(5px);
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    .btn-finish {
+      background: #00b894;
+      color: white;
+      width: 100%;
+    }
+
+    .btn-finish:hover {
+      background: #019875;
+      transform: scale(1.02);
+    }
+
+    .btn-back {
+      background: #0984e3;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .btn-back:hover {
+      background: #0767b1;
+      transform: scale(1.02);
+    }
+
+    .result-box {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      display: none;
+      margin-top: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .result-box h2 {
+      margin: 0;
+      font-size: 28px;
+      color: #ffeaa7;
+    }
+
+    .result-box p {
+      margin-top: 12px;
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .score {
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #55efc4;
+    }
+
+    .btn-reset {
+      background: #fdcb6e;
+      color: black;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .btn-reset:hover {
+      background: #f1b93b;
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      margin-top: 30px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.9);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Latihan Coding</h1>
+  <p>Kerjakan 30 soal pilihan ganda untuk menguji skill kamu 🚀</p>
+</header>
+
+<div class="container">
+
+  <form id="quizForm">
+
+    <!-- SOAL 1 -->
+    <div class="box">
+      <div class="question-title">1. HTML digunakan untuk...</div>
+      <label><input type="radio" name="q1" value="a"> Mengatur desain website</label>
+      <label><input type="radio" name="q1" value="b"> Membuat struktur halaman web</label>
+      <label><input type="radio" name="q1" value="c"> Mengatur database</label>
+      <label><input type="radio" name="q1" value="d"> Membuat animasi game</label>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="box">
+      <div class="question-title">2. Tag untuk membuat paragraf pada HTML adalah...</div>
+      <label><input type="radio" name="q2" value="a"> &lt;h1&gt;</label>
+      <label><input type="radio" name="q2" value="b"> &lt;p&gt;</label>
+      <label><input type="radio" name="q2" value="c"> &lt;div&gt;</label>
+      <label><input type="radio" name="q2" value="d"> &lt;span&gt;</label>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="box">
+      <div class="question-title">3. CSS berfungsi untuk...</div>
+      <label><input type="radio" name="q3" value="a"> Mengatur tampilan halaman web</label>
+      <label><input type="radio" name="q3" value="b"> Menyimpan data user</label>
+      <label><input type="radio" name="q3" value="c"> Membuat database</label>
+      <label><input type="radio" name="q3" value="d"> Membuat server hosting</label>
+    </div>
+
+    <!-- SOAL 4 -->
+    <div class="box">
+      <div class="question-title">4. Kepanjangan CSS adalah...</div>
+      <label><input type="radio" name="q4" value="a"> Creative Style System</label>
+      <label><input type="radio" name="q4" value="b"> Cascading Style Sheets</label>
+      <label><input type="radio" name="q4" value="c"> Coding Style Script</label>
+      <label><input type="radio" name="q4" value="d"> Computer Style Sheet</label>
+    </div>
+
+    <!-- SOAL 5 -->
+    <div class="box">
+      <div class="question-title">5. Properti CSS untuk mengubah warna teks adalah...</div>
+      <label><input type="radio" name="q5" value="a"> background-color</label>
+      <label><input type="radio" name="q5" value="b"> font-style</label>
+      <label><input type="radio" name="q5" value="c"> color</label>
+      <label><input type="radio" name="q5" value="d"> border</label>
+    </div>
+
+    <!-- SOAL 6 -->
+    <div class="box">
+      <div class="question-title">6. JavaScript digunakan untuk...</div>
+      <label><input type="radio" name="q6" value="a"> Membuat web menjadi interaktif</label>
+      <label><input type="radio" name="q6" value="b"> Membuat file gambar</label>
+      <label><input type="radio" name="q6" value="c"> Menghapus CSS</label>
+      <label><input type="radio" name="q6" value="d"> Menambah RAM komputer</label>
+    </div>
+
+    <!-- SOAL 7 -->
+    <div class="box">
+      <div class="question-title">7. Output dari kode Python berikut adalah: print(5 + 5)</div>
+      <label><input type="radio" name="q7" value="a"> 55</label>
+      <label><input type="radio" name="q7" value="b"> 10</label>
+      <label><input type="radio" name="q7" value="c"> 5 + 5</label>
+      <label><input type="radio" name="q7" value="d"> error</label>
+    </div>
+
+    <!-- SOAL 8 -->
+    <div class="box">
+      <div class="question-title">8. Tag untuk membuat link pada HTML adalah...</div>
+      <label><input type="radio" name="q8" value="a"> &lt;link&gt;</label>
+      <label><input type="radio" name="q8" value="b"> &lt;a&gt;</label>
+      <label><input type="radio" name="q8" value="c"> &lt;href&gt;</label>
+      <label><input type="radio" name="q8" value="d"> &lt;url&gt;</label>
+    </div>
+
+    <!-- SOAL 9 -->
+    <div class="box">
+      <div class="question-title">9. Di CSS, untuk mengatur ukuran teks digunakan properti...</div>
+      <label><input type="radio" name="q9" value="a"> font-size</label>
+      <label><input type="radio" name="q9" value="b"> text-color</label>
+      <label><input type="radio" name="q9" value="c"> font-weight</label>
+      <label><input type="radio" name="q9" value="d"> text-style</label>
+    </div>
+
+    <!-- SOAL 10 -->
+    <div class="box">
+      <div class="question-title">10. Penulisan komentar pada HTML adalah...</div>
+      <label><input type="radio" name="q10" value="a"> // komentar</label>
+      <label><input type="radio" name="q10" value="b"> # komentar</label>
+      <label><input type="radio" name="q10" value="c"> &lt;!-- komentar --&gt;</label>
+      <label><input type="radio" name="q10" value="d"> /* komentar */</label>
+    </div>
+
+    <!-- SOAL 11 -->
+    <div class="box">
+      <div class="question-title">11. Pada JavaScript, untuk menampilkan teks digunakan...</div>
+      <label><input type="radio" name="q11" value="a"> print()</label>
+      <label><input type="radio" name="q11" value="b"> echo()</label>
+      <label><input type="radio" name="q11" value="c"> console.log()</label>
+      <label><input type="radio" name="q11" value="d"> show()</label>
+    </div>
+
+    <!-- SOAL 12 -->
+    <div class="box">
+      <div class="question-title">12. Tag untuk membuat judul terbesar adalah...</div>
+      <label><input type="radio" name="q12" value="a"> &lt;h6&gt;</label>
+      <label><input type="radio" name="q12" value="b"> &lt;h3&gt;</label>
+      <label><input type="radio" name="q12" value="c"> &lt;h1&gt;</label>
+      <label><input type="radio" name="q12" value="d"> &lt;title&gt;</label>
+    </div>
+
+    <!-- SOAL 13 -->
+    <div class="box">
+      <div class="question-title">13. Properti CSS untuk memberi jarak dalam elemen adalah...</div>
+      <label><input type="radio" name="q13" value="a"> margin</label>
+      <label><input type="radio" name="q13" value="b"> padding</label>
+      <label><input type="radio" name="q13" value="c"> border</label>
+      <label><input type="radio" name="q13" value="d"> height</label>
+    </div>
+
+    <!-- SOAL 14 -->
+    <div class="box">
+      <div class="question-title">14. Fungsi utama Python adalah...</div>
+      <label><input type="radio" name="q14" value="a"> Bahasa pemrograman untuk banyak kebutuhan</label>
+      <label><input type="radio" name="q14" value="b"> Browser internet</label>
+      <label><input type="radio" name="q14" value="c"> Sistem operasi</label>
+      <label><input type="radio" name="q14" value="d"> Aplikasi edit foto</label>
+    </div>
+
+    <!-- SOAL 15 -->
+    <div class="box">
+      <div class="question-title">15. Tag untuk memasukkan gambar di HTML adalah...</div>
+      <label><input type="radio" name="q15" value="a"> &lt;img&gt;</label>
+      <label><input type="radio" name="q15" value="b"> &lt;picture&gt;</label>
+      <label><input type="radio" name="q15" value="c"> &lt;src&gt;</label>
+      <label><input type="radio" name="q15" value="d"> &lt;image&gt;</label>
+    </div>
+
+    <!-- SOAL 16 -->
+    <div class="box">
+      <div class="question-title">16. Di JavaScript, variabel bisa dibuat dengan...</div>
+      <label><input type="radio" name="q16" value="a"> var, let, const</label>
+      <label><input type="radio" name="q16" value="b"> int, float</label>
+      <label><input type="radio" name="q16" value="c"> def</label>
+      <label><input type="radio" name="q16" value="d"> echo</label>
+    </div>
+
+    <!-- SOAL 17 -->
+    <div class="box">
+      <div class="question-title">17. Output dari Python: print("Hello") adalah...</div>
+      <label><input type="radio" name="q17" value="a"> Hello</label>
+      <label><input type="radio" name="q17" value="b"> "Hello"</label>
+      <label><input type="radio" name="q17" value="c"> print Hello</label>
+      <label><input type="radio" name="q17" value="d"> error</label>
+    </div>
+
+    <!-- SOAL 18 -->
+    <div class="box">
+      <div class="question-title">18. Untuk membuat background berwarna di CSS digunakan...</div>
+      <label><input type="radio" name="q18" value="a"> background-color</label>
+      <label><input type="radio" name="q18" value="b"> color</label>
+      <label><input type="radio" name="q18" value="c"> font-color</label>
+      <label><input type="radio" name="q18" value="d"> text-color</label>
+    </div>
+
+    <!-- SOAL 19 -->
+    <div class="box">
+      <div class="question-title">19. Tag untuk membuat tabel pada HTML adalah...</div>
+      <label><input type="radio" name="q19" value="a"> &lt;table&gt;</label>
+      <label><input type="radio" name="q19" value="b"> &lt;tab&gt;</label>
+      <label><input type="radio" name="q19" value="c"> &lt;trr&gt;</label>
+      <label><input type="radio" name="q19" value="d"> &lt;tds&gt;</label>
+    </div>
+
+    <!-- SOAL 20 -->
+    <div class="box">
+      <div class="question-title">20. Di CSS, selector class diawali dengan simbol...</div>
+      <label><input type="radio" name="q20" value="a"> #</label>
+      <label><input type="radio" name="q20" value="b"> .</label>
+      <label><input type="radio" name="q20" value="c"> *</label>
+      <label><input type="radio" name="q20" value="d"> &</label>
+    </div>
+
+    <!-- SOAL 21 -->
+    <div class="box">
+      <div class="question-title">21. Di JavaScript, untuk membuat alert digunakan...</div>
+      <label><input type="radio" name="q21" value="a"> alert()</label>
+      <label><input type="radio" name="q21" value="b"> print()</label>
+      <label><input type="radio" name="q21" value="c"> message()</label>
+      <label><input type="radio" name="q21" value="d"> showAlert()</label>
+    </div>
+
+    <!-- SOAL 22 -->
+    <div class="box">
+      <div class="question-title">22. Dalam Python, percabangan menggunakan...</div>
+      <label><input type="radio" name="q22" value="a"> if else</label>
+      <label><input type="radio" name="q22" value="b"> switch</label>
+      <label><input type="radio" name="q22" value="c"> case</label>
+      <label><input type="radio" name="q22" value="d"> select</label>
+    </div>
+
+    <!-- SOAL 23 -->
+    <div class="box">
+      <div class="question-title">23. Tag untuk membuat input form adalah...</div>
+      <label><input type="radio" name="q23" value="a"> &lt;form&gt;</label>
+      <label><input type="radio" name="q23" value="b"> &lt;input&gt;</label>
+      <label><input type="radio" name="q23" value="c"> &lt;button&gt;</label>
+      <label><input type="radio" name="q23" value="d"> &lt;field&gt;</label>
+    </div>
+
+    <!-- SOAL 24 -->
+    <div class="box">
+      <div class="question-title">24. Di CSS, untuk membuat teks tebal digunakan...</div>
+      <label><input type="radio" name="q24" value="a"> font-style</label>
+      <label><input type="radio" name="q24" value="b"> font-weight</label>
+      <label><input type="radio" name="q24" value="c"> text-bold</label>
+      <label><input type="radio" name="q24" value="d"> bold-text</label>
+    </div>
+
+    <!-- SOAL 25 -->
+    <div class="box">
+      <div class="question-title">25. Output dari JavaScript: console.log(2+3) adalah...</div>
+      <label><input type="radio" name="q25" value="a"> 23</label>
+      <label><input type="radio" name="q25" value="b"> 5</label>
+      <label><input type="radio" name="q25" value="c"> 2+3</label>
+      <label><input type="radio" name="q25" value="d"> error</label>
+    </div>
+
+    <!-- SOAL 26 -->
+    <div class="box">
+      <div class="question-title">26. Tag untuk membuat list berurutan adalah...</div>
+      <label><input type="radio" name="q26" value="a"> &lt;ul&gt;</label>
+      <label><input type="radio" name="q26" value="b"> &lt;ol&gt;</label>
+      <label><input type="radio" name="q26" value="c"> &lt;li&gt;</label>
+      <label><input type="radio" name="q26" value="d"> &lt;list&gt;</label>
+    </div>
+
+    <!-- SOAL 27 -->
+    <div class="box">
+      <div class="question-title">27. Dalam Python, perulangan biasanya menggunakan...</div>
+      <label><input type="radio" name="q27" value="a"> for dan while</label>
+      <label><input type="radio" name="q27" value="b"> repeat</label>
+      <label><input type="radio" name="q27" value="c"> loop()</label>
+      <label><input type="radio" name="q27" value="d"> cycle</label>
+    </div>
+
+    <!-- SOAL 28 -->
+    <div class="box">
+      <div class="question-title">28. CSS selector id diawali dengan simbol...</div>
+      <label><input type="radio" name="q28" value="a"> .</label>
+      <label><input type="radio" name="q28" value="b"> #</label>
+      <label><input type="radio" name="q28" value="c"> *</label>
+      <label><input type="radio" name="q28" value="d"> @</label>
+    </div>
+
+    <!-- SOAL 29 -->
+    <div class="box">
+      <div class="question-title">29. Tag untuk membuat tombol di HTML adalah...</div>
+      <label><input type="radio" name="q29" value="a"> &lt;input&gt;</label>
+      <label><input type="radio" name="q29" value="b"> &lt;button&gt;</label>
+      <label><input type="radio" name="q29" value="c"> &lt;submit&gt;</label>
+      <label><input type="radio" name="q29" value="d"> &lt;click&gt;</label>
+    </div>
+
+    <!-- SOAL 30 -->
+    <div class="box">
+      <div class="question-title">30. Bahasa yang paling cocok untuk membuat AI adalah...</div>
+      <label><input type="radio" name="q30" value="a"> HTML</label>
+      <label><input type="radio" name="q30" value="b"> CSS</label>
+      <label><input type="radio" name="q30" value="c"> Python</label>
+      <label><input type="radio" name="q30" value="d"> XML</label>
+    </div>
+
+    <button type="button" class="btn btn-finish" onclick="checkScore()">✅ Selesai & Lihat Hasil</button>
+  </form>
+
+  <!-- HASIL NILAI -->
+  <div class="result-box" id="resultBox">
+    <h2>🎉 Hasil Latihan Kamu</h2>
+    <p id="resultText"></p>
+    <div class="score" id="scoreText"></div>
+    <button class="btn btn-reset" onclick="resetQuiz()">🔄 Ulangi Latihan</button>
+  </div>
+
+  <a href="halaman_beranda.html" class="btn btn-back">⬅ Kembali ke Beranda</a>
+
+</div>
+
+<footer>
+  © 2026 zharr study | Latihan Coding Biar Makin Jago 🚀
+</footer>
+
+<script>
+  const correctAnswers = {
+    q1: "b",
+    q2: "b",
+    q3: "a",
+    q4: "b",
+    q5: "c",
+    q6: "a",
+    q7: "b",
+    q8: "b",
+    q9: "a",
+    q10: "c",
+    q11: "c",
+    q12: "c",
+    q13: "b",
+    q14: "a",
+    q15: "a",
+    q16: "a",
+    q17: "a",
+    q18: "a",
+    q19: "a",
+    q20: "b",
+    q21: "a",
+    q22: "a",
+    q23: "b",
+    q24: "b",
+    q25: "b",
+    q26: "b",
+    q27: "a",
+    q28: "b",
+    q29: "b",
+    q30: "c"
+  };
+
+  function checkScore() {
+    let score = 0;
+    let total = 30;
+
+    for (let i = 1; i <= total; i++) {
+      let q = document.querySelector(`input[name="q${i}"]:checked`);
+      if (q && q.value === correctAnswers[`q${i}`]) {
+        score++;
+      }
+    }
+
+    let wrong = total - score;
+    let percent = Math.round((score / total) * 100);
+
+    document.getElementById("resultBox").style.display = "block";
+    document.getElementById("resultText").innerHTML =
+      `Jawaban Benar: <b>${score}</b> | Jawaban Salah: <b>${wrong}</b> <br> Persentase Nilai: <b>${percent}%</b>`;
+
+    document.getElementById("scoreText").innerHTML = `${score} / ${total}`;
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  function resetQuiz() {
+    document.getElementById("quizForm").reset();
+    document.getElementById("resultBox").style.display = "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
+</body>
+</html>

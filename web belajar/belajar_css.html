@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar CSS | zharr study</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      color: #2d3436;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #0984e3;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #636e72;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.88);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #6c5ce7;
+      border-left: 6px solid #0984e3;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+
+    p {
+      line-height: 1.8em;
+      font-size: 16px;
+    }
+
+    ul {
+      line-height: 1.8em;
+      font-size: 16px;
+    }
+
+    .box {
+      background-color: #ffffff;
+      border-left: 6px solid #00b894;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    code {
+      background-color: #2d3436;
+      color: #00cec9;
+      padding: 3px 6px;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+
+    pre {
+      background-color: #2d3436;
+      color: #dfe6e9;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6em;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #0984e3;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #0652a0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #636e72;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Belajar CSS</h1>
+    <p>Materi CSS dasar untuk pemula | zharr study</p>
+  </header>
+
+  <div class="container">
+
+    <h2>🎨 Apa Itu CSS?</h2>
+    <p>
+      CSS adalah singkatan dari <b>Cascading Style Sheets</b>.
+      CSS merupakan bahasa yang digunakan untuk mengatur tampilan halaman website,
+      seperti warna, ukuran teks, font, jarak, layout, dan desain lainnya.
+    </p>
+
+    <div class="box">
+      <b>Kesimpulan:</b> HTML itu kerangka website, sedangkan CSS itu yang membuat website jadi cantik.
+    </div>
+
+    <h2>⚙ Fungsi CSS</h2>
+    <p>CSS memiliki beberapa fungsi penting, antara lain:</p>
+    <ul>
+      <li>Mengubah warna teks dan background</li>
+      <li>Mengatur ukuran font dan jenis font</li>
+      <li>Membuat layout website lebih rapi</li>
+      <li>Membuat tombol, menu, dan tampilan website lebih menarik</li>
+      <li>Membuat website responsif di berbagai ukuran layar</li>
+    </ul>
+
+    <h2>📌 Cara Kerja CSS</h2>
+    <p>
+      CSS bekerja dengan cara memilih elemen HTML, lalu memberikan aturan (style) pada elemen tersebut.
+      Aturan ini ditulis menggunakan selector dan property.
+    </p>
+
+    <div class="box">
+      <b>Struktur dasar CSS:</b>
+      <pre>
+selector {
+  property: value;
+}
+      </pre>
+    </div>
+
+    <h2>🧩 Contoh CSS Sederhana</h2>
+    <p>Contoh penggunaan CSS untuk mengubah warna paragraf:</p>
+
+    <pre>
+p {
+  color: red;
+  font-size: 18px;
+}
+    </pre>
+
+    <h2>📌 Jenis-Jenis CSS</h2>
+    <p>CSS dibagi menjadi 3 jenis berdasarkan cara penulisannya:</p>
+
+    <div class="box">
+      <b>1. Inline CSS</b>
+      <p>
+        Inline CSS ditulis langsung di dalam tag HTML menggunakan atribut <code>style</code>.
+        Biasanya digunakan hanya untuk satu elemen saja.
+      </p>
+
+      <pre>
+&lt;p style="color: blue; font-size: 20px;"&gt;
+  Ini paragraf dengan inline CSS
+&lt;/p&gt;
+      </pre>
+    </div>
+
+    <div class="box">
+      <b>2. Internal CSS</b>
+      <p>
+        Internal CSS ditulis di dalam tag <code>&lt;style&gt;</code> pada bagian <code>&lt;head&gt;</code>.
+        Jenis ini cocok jika desain hanya digunakan untuk satu halaman.
+      </p>
+
+      <pre>
+&lt;style&gt;
+  h1 {
+    color: green;
+  }
+&lt;/style&gt;
+      </pre>
+    </div>
+
+    <div class="box">
+      <b>3. External CSS</b>
+      <p>
+        External CSS ditulis pada file terpisah dengan ekstensi <code>.css</code>.
+        Ini adalah cara yang paling direkomendasikan karena rapi dan bisa digunakan banyak halaman.
+      </p>
+
+      <pre>
+&lt;link rel="stylesheet" href="style.css"&gt;
+      </pre>
+    </div>
+
+    <h2>📌 Selector CSS</h2>
+    <p>Selector adalah cara CSS memilih elemen HTML yang ingin diberi style.</p>
+
+    <ul>
+      <li><b>Selector Tag:</b> <code>p</code>, <code>h1</code>, <code>div</code></li>
+      <li><b>Selector Class:</b> <code>.namaClass</code></li>
+      <li><b>Selector ID:</b> <code>#namaId</code></li>
+    </ul>
+
+    <div class="box">
+      <b>Contoh selector class:</b>
+      <pre>
+.box {
+  background-color: yellow;
+  padding: 10px;
+}
+      </pre>
+    </div>
+
+    <h2>📌 Property CSS yang Sering Dipakai</h2>
+    <p>Berikut beberapa property CSS yang sering digunakan:</p>
+
+    <ul>
+      <li><code>color</code> → warna teks</li>
+      <li><code>background-color</code> → warna background</li>
+      <li><code>font-size</code> → ukuran font</li>
+      <li><code>font-family</code> → jenis font</li>
+      <li><code>margin</code> → jarak luar</li>
+      <li><code>padding</code> → jarak dalam</li>
+      <li><code>border</code> → garis tepi</li>
+      <li><code>width</code> dan <code>height</code> → ukuran elemen</li>
+    </ul>
+
+    <h2>📌 Margin dan Padding</h2>
+    <p>
+      Margin adalah jarak luar elemen, sedangkan padding adalah jarak dalam elemen.
+      Keduanya sangat penting untuk membuat tampilan lebih rapi.
+    </p>
+
+    <div class="box">
+      <b>Contoh penggunaan margin dan padding:</b>
+      <pre>
+div {
+  margin: 20px;
+  padding: 15px;
+  background-color: white;
+}
+      </pre>
+    </div>
+
+    <h2>📌 CSS Layout (Flexbox)</h2>
+    <p>
+      Flexbox adalah salah satu fitur CSS yang berguna untuk mengatur layout elemen agar lebih mudah dan responsif.
+    </p>
+
+    <div class="box">
+      <b>Contoh Flexbox:</b>
+      <pre>
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+      </pre>
+    </div>
+
+    <h2>📌 Pseudo-class (Hover)</h2>
+    <p>
+      Pseudo-class digunakan untuk memberi efek pada kondisi tertentu.
+      Contohnya saat tombol disentuh mouse (hover).
+    </p>
+
+    <pre>
+button:hover {
+  background-color: orange;
+  color: white;
+}
+    </pre>
+
+    <h2>📌 Responsive Design</h2>
+    <p>
+      Responsive design adalah desain website yang dapat menyesuaikan ukuran layar (HP, tablet, laptop).
+      CSS dapat membuat website responsif menggunakan <code>@media</code>.
+    </p>
+
+    <div class="box">
+      <b>Contoh media query:</b>
+      <pre>
+@media (max-width: 600px) {
+  body {
+    background-color: lightgray;
+  }
+}
+      </pre>
+    </div>
+
+    <h2>📌 Kesimpulan</h2>
+    <p>
+      CSS adalah bahasa yang digunakan untuk mengatur tampilan website agar lebih menarik.
+      CSS dapat digunakan untuk mengubah warna, font, layout, animasi, dan membuat website menjadi responsif.
+      Setelah memahami HTML, CSS adalah langkah berikutnya agar website terlihat lebih profesional dan keren.
+    </p>
+
+    <a href="halaman_beranda.html" class="btn-back">⬅ Kembali ke Beranda</a>
+
+  </div>
+
+  <footer>
+    © 2026 zharr study | Belajar Web dengan Santai 🚀
+  </footer>
+
+</body>
+</html>
